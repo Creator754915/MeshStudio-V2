@@ -1,1 +1,0 @@
-["AddEntity(name='Entity0', model='cube', color='#5d534aff', )", "AddEntity(name='Entity1', model='cube', color='#5d538aff', )"]
