@@ -1,0 +1,1 @@
+{"Show tooltip": true, "Auto save on exit": false, "Show memory counter": true, "Fullscreen": false, "Anti-aliasing sample": 4, "Render distance (near)": 0.1, "Render distance (far)": 10000.0}
