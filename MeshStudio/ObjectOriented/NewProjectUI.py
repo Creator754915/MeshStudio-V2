@@ -5,7 +5,7 @@ from MeshStudio.Assets.plugins.CheckBox import CheckBox
 from ursina.shaders import lit_with_shadows_shader
 import psutil
 
-from MeshStudio.ObjectOriented.SceneEditor import SceneEditor
+from MeshStudio.MainFiles.SceneEditor import SceneEditor
 
 
 class NewProjectUI(Entity):
@@ -67,7 +67,7 @@ class NewProjectUI(Entity):
 
         Text(text="Shadows Resolution: ", scale=1.5, position=(.2, .1))
 
-        self.ShadowsResolutionSlider = Slider(32, 4096, step=32, default=256,
+        self.ShadowsResolutionSlider = Slider(32, 4096, step=32, default=2048,
                                               radius=Text.size / 5, height=Text.size * 1.4,
                                               position=(0.22, 0.01))
 
@@ -75,18 +75,18 @@ class NewProjectUI(Entity):
 
         Text(text="Preview Shadows ", scale=1, position=(-.1, .47))
 
-        self.CreateProjectButton = Button(text="Create", radius=0, color=color.blue, scale=(.438, .1),
-                                          text_size=Text.size * 2,
+        self.CreateProjectButton = Button(text="Create project", radius=0, color=color.blue, scale=(.438, .1),
+                                          text_size=Text.size * 50,
                                           position=(0, -.45),
                                           on_click=self.CreateProject)
 
         self.TextureEntity = Entity(parent=camera.ui, model="cube", texture='brick', scale=0.2, position=(.31, -.16))
-        self.TextureEntity.texture_scale = (self.ShadowsResolutionSlider, self.ShadowsResolutionSlider)
+        self.TextureEntity.texture_scale = Vec2(self.ShadowsResolutionSlider.value, self.ShadowsResolutionSlider.value)
         self.ShadowsResolutionSlider.on_value_changed = self.ChangeTexture()
 
         self.light = DirectionalLight(shadows=True)
         self.light.look_at(Vec3(1, -1, 1))
-        self.light.shadow_map_resolution = Vec2(1024, 1024)
+        self.light.shadow_map_resolution = Vec2(2048, 2048)
 
         Entity(model='plane', scale=2, color=color.gray, shader=lit_with_shadows_shader)
         Entity(model='cube', y=.5, scale=.5, shader=lit_with_shadows_shader, color=color.gray)
@@ -95,7 +95,8 @@ class NewProjectUI(Entity):
                      rotation=Vec3(36, 136, 0))
 
     def ChangeTexture(self):
-        self.TextureEntity.texture_scale = (self.ShadowsResolutionSlider, self.ShadowsResolutionSlider)
+        self.ShadowResolutionText.text = f'{self.ShadowsResolutionSlider.value}x{self.ShadowsResolutionSlider.value}'
+        self.TextureEntity.texture_scale = Vec2(self.ShadowsResolutionSlider.value, self.ShadowsResolutionSlider.value)
 
     def update(self):
         if self.PhysicsCheckbox.state is True:
