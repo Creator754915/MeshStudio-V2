@@ -20,7 +20,7 @@ MeshStudio Version 2, better optimisation, new tools and more !
 
 **You need to install first => ```pip install https://github.com/Creator754915/Ursina.More.UI.git```**
 
-**After run the Launcher.py**
+**After run the MeshStudio.py**
 
 ## Keybinds:
 
