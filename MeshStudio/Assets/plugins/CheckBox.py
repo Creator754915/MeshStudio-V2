@@ -11,7 +11,7 @@ class CheckBox(Button):
         for key, value in kwargs.items():
             setattr(self, key, value)
 
-        # self.icon_entity.scale = self.scale
+        #self.icon_entity.scale = self.scale
 
     def on_click(self):
         self.state = not self.state
@@ -28,7 +28,7 @@ class CheckBox(Button):
             self.icon = f"../../MeshStudio/icons/checkbox.png"
             self.icon.visible = True
         else:
-            self.icon.visible = False
+            self.icon = f"../../MeshStudio/icons/_blank.png"
 
 
 if __name__ == '__main__':
