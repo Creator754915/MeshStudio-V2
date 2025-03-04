@@ -1,7 +1,7 @@
 <p align="center">
   <img src="MeshStudio/icons/meshstudio_logo_big.png">
   <br>
-  <img src="https://img.shields.io/badge/Version-2.0.0-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/BETA-1.4-green?style=for-the-badge">
   <br>
   <img src="https://img.shields.io/badge/Author-Creator754915-blue?style=flat-square">
   <img src="https://img.shields.io/badge/Open%20Source-Yes-darkgreen?style=flat-square">
